@@ -4,6 +4,7 @@ import { AuthContext } from '../context/AuthContext';
 import api from '../api/axios';
 import { Mail, Lock, LogIn } from 'lucide-react';
 import PageWrapper from '../components/PageWrapper';
+import PageContainer from '../components/PageContainer';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -49,9 +50,9 @@ export default function Login() {
 
   return (
     <PageWrapper>
-      <div className="max-w-md mx-auto">
-      <div className="bg-white rounded-2xl shadow-card p-8 md:p-10">
-        <h1 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">Login</h1>
+      <PageContainer variant="narrow" className="max-w-md">
+      <div className="bg-white rounded-2xl shadow-card p-8 md:p-10 border border-rose-100">
+        <h1 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-rose-600 via-pink-600 to-lime-600 bg-clip-text text-transparent">Login</h1>
         
         {error && (
           <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6 flex items-center gap-2">
@@ -62,7 +63,7 @@ export default function Login() {
 
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700 font-semibold mb-2 flex items-center gap-2">
+            <label htmlFor="email" className="block text-neutral-700 font-semibold mb-2 flex items-center gap-2">
               <Mail size={18} />
               Email
             </label>
@@ -72,13 +73,13 @@ export default function Login() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+              className="w-full p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
               placeholder="your.email@example.com"
             />
           </div>
 
           <div className="mb-6">
-            <label htmlFor="password" className="block text-gray-700 font-semibold mb-2 flex items-center gap-2">
+            <label htmlFor="password" className="block text-neutral-700 font-semibold mb-2 flex items-center gap-2">
               <Lock size={18} />
               Password
             </label>
@@ -88,7 +89,7 @@ export default function Login() {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+              className="w-full p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
               placeholder="••••••••"
             />
           </div>
@@ -96,7 +97,7 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+            className="w-full bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:to-pink-600 text-white py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
           >
             {loading ? 'Logging in...' : (
               <>
@@ -107,14 +108,14 @@ export default function Login() {
           </button>
         </form>
 
-        <p className="text-center text-gray-600 mt-6">
+        <p className="text-center text-neutral-600 mt-6">
           Don't have an account?{' '}
-          <Link to="/register" className="text-primary-600 hover:text-primary-700 font-semibold transition-colors">
+          <Link to="/register" className="text-rose-600 hover:text-rose-700 font-semibold transition-colors">
             Register here
           </Link>
         </p>
       </div>
-    </div>
+    </PageContainer>
     </PageWrapper>
   );
 }

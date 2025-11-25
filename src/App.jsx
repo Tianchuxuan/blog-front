@@ -1,8 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Layout from './components/Layout';
 import LoadingSpinner from './components/LoadingSpinner';
 
 // 代码分割 - 懒加载页面组件
@@ -45,14 +44,12 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 via-white to-gray-100">
-        <Header />
-        <main className="flex-grow container mx-auto px-4 py-8">
+      <div className="min-h-screen flex flex-col bg-gradient-to-br from-rose-50 via-pink-50 to-lime-50">
+        <Layout>
           <Suspense fallback={<LoadingSpinner />}>
             <AnimatedRoutes />
           </Suspense>
-        </main>
-        <Footer />
+        </Layout>
       </div>
     </Router>
   );

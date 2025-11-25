@@ -5,6 +5,7 @@ import ProjectCard from '../components/ProjectCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ErrorMessage from '../components/ErrorMessage';
 import PageWrapper from '../components/PageWrapper';
+import PageContainer from '../components/PageContainer';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -41,7 +42,7 @@ export default function Projects() {
 
   return (
     <PageWrapper>
-      <div>
+      <PageContainer variant="wide">
         <h1 className="text-3xl font-bold mb-8">My Projects</h1>
         {projects.length === 0 ? (
           <p className="text-gray-600">No projects found.</p>
@@ -57,7 +58,7 @@ export default function Projects() {
             ))}
           </motion.div>
         )}
-      </div>
+      </PageContainer>
     </PageWrapper>
   );
 }

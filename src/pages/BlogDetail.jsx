@@ -4,6 +4,7 @@ import api from '../api/axios';
 import { AuthContext } from '../context/AuthContext';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ErrorMessage from '../components/ErrorMessage';
+import PageContainer from '../components/PageContainer';
 
 export default function BlogDetail() {
   const { id } = useParams();
@@ -73,7 +74,7 @@ export default function BlogDetail() {
   if (!post) return <ErrorMessage message="Blog post not found" />;
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <PageContainer variant="narrow">
       <article className="bg-white rounded-lg shadow-md p-8 mb-8">
         <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
         <div className="text-gray-600 mb-6">
@@ -81,7 +82,7 @@ export default function BlogDetail() {
           <span className="mx-2">•</span>
           <span>{formatDate(post.createdAt)}</span>
         </div>
-        <div className="prose max-w-none">
+        <div className="prose prose-neutral max-w-none">
           <p className="text-gray-800 whitespace-pre-wrap">{post.content}</p>
         </div>
       </article>
@@ -97,7 +98,7 @@ export default function BlogDetail() {
               value={commentBody}
               onChange={(e) => setCommentBody(e.target.value)}
               placeholder="Write a comment..."
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
               rows="4"
             />
             {submitError && (
@@ -106,14 +107,14 @@ export default function BlogDetail() {
             <button
               type="submit"
               disabled={submitting}
-              className="mt-3 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition disabled:bg-gray-400"
+              className="mt-3 bg-rose-600 text-white px-6 py-2 rounded-lg hover:bg-rose-700 transition disabled:bg-gray-400"
             >
               {submitting ? 'Posting...' : 'Post Comment'}
             </button>
           </form>
         ) : (
           <p className="text-gray-600 mb-8">
-            Please <a href="/login" className="text-blue-600 hover:underline">login</a> to post a comment.
+            Please <a href="/login" className="text-rose-600 hover:underline">login</a> to post a comment.
           </p>
         )}
 
@@ -122,7 +123,7 @@ export default function BlogDetail() {
             <p className="text-gray-600">No comments yet. Be the first to comment!</p>
           ) : (
             comments.map((comment) => (
-              <div key={comment._id} className="border-l-4 border-blue-500 pl-4 py-2">
+              <div key={comment._id} className="border-l-4 border-rose-500 pl-4 py-2">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="font-semibold">{comment.author?.username || 'Unknown'}</span>
                   <span className="text-sm text-gray-500">
@@ -135,6 +136,6 @@ export default function BlogDetail() {
           )}
         </div>
       </div>
-    </div>
+    </PageContainer>
   );
 }

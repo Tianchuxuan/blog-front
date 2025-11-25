@@ -5,6 +5,7 @@ import BlogPostCard from '../components/BlogPostCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ErrorMessage from '../components/ErrorMessage';
 import PageWrapper from '../components/PageWrapper';
+import PageContainer from '../components/PageContainer';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -41,13 +42,13 @@ export default function Blog() {
 
   return (
     <PageWrapper>
-      <div>
-        <h1 className="text-3xl font-bold mb-8">Blog</h1>
+      <PageContainer variant="wide">
+        <h1 className="text-3xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-rose-600 via-pink-600 to-lime-600 bg-clip-text text-transparent">Blog</h1>
         {posts.length === 0 ? (
-          <p className="text-gray-600">No blog posts found.</p>
+          <p className="text-neutral-700">No blog posts found.</p>
         ) : (
           <motion.div 
-            className="space-y-6"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -57,7 +58,7 @@ export default function Blog() {
             ))}
           </motion.div>
         )}
-      </div>
+      </PageContainer>
     </PageWrapper>
   );
 }

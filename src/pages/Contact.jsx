@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import api from '../api/axios';
 import { User, Mail, MessageSquare, Send } from 'lucide-react';
 import PageWrapper from '../components/PageWrapper';
+import PageContainer from '../components/PageContainer';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -50,8 +51,8 @@ export default function Contact() {
 
   return (
     <PageWrapper>
-      <div className="max-w-2xl mx-auto">
-      <h1 className="text-3xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">Contact Me</h1>
+      <PageContainer variant="narrow">
+      <h1 className="text-3xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-rose-600 via-pink-600 to-lime-600 bg-clip-text text-transparent">Contact Me</h1>
       
       {success && (
         <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-6 flex items-center gap-2">
@@ -67,9 +68,9 @@ export default function Contact() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-card p-8 md:p-10 space-y-6">
+      <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-card p-8 md:p-10 space-y-6 border border-rose-100">
         <div className="mb-6">
-          <label htmlFor="name" className="block text-gray-700 font-semibold mb-2 flex items-center gap-2">
+          <label htmlFor="name" className="block text-neutral-700 font-semibold mb-2 flex items-center gap-2">
             <User size={18} />
             Name
           </label>
@@ -79,13 +80,13 @@ export default function Contact() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+            className="w-full p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
             placeholder="Your name"
           />
         </div>
 
         <div className="mb-6">
-          <label htmlFor="email" className="block text-gray-700 font-semibold mb-2 flex items-center gap-2">
+          <label htmlFor="email" className="block text-neutral-700 font-semibold mb-2 flex items-center gap-2">
             <Mail size={18} />
             Email
           </label>
@@ -95,13 +96,13 @@ export default function Contact() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+            className="w-full p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
             placeholder="your.email@example.com"
           />
         </div>
 
         <div className="mb-6">
-          <label htmlFor="message" className="block text-gray-700 font-semibold mb-2 flex items-center gap-2">
+          <label htmlFor="message" className="block text-neutral-700 font-semibold mb-2 flex items-center gap-2">
             <MessageSquare size={18} />
             Message
           </label>
@@ -111,7 +112,7 @@ export default function Contact() {
             value={formData.message}
             onChange={handleChange}
             rows="6"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+            className="w-full p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
             placeholder="Your message..."
           />
         </div>
@@ -119,7 +120,7 @@ export default function Contact() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+          className="w-full bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:via-pink-600 hover:to-rose-700 text-white py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
         >
           {submitting ? 'Sending...' : (
             <>
@@ -129,7 +130,7 @@ export default function Contact() {
           )}
         </button>
       </form>
-    </div>
+    </PageContainer>
     </PageWrapper>
   );
 }

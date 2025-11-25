@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-family: theme('fontFamily.sans');
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    color: theme('colors.neutral.800');
+    background-color: theme('colors.neutral.50');
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: theme('colors.neutral.900');
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: theme('colors.primary.200');
+    color: theme('colors.neutral.900');
+  }
+}
+
 @layer utilities {
   @keyframes fadeIn {
     from { opacity: 0; }

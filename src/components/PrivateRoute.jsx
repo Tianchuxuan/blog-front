@@ -8,7 +8,7 @@ export default function PrivateRoute({ children }) {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-12">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-rose-600"></div>
       </div>
     );
   }
