@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@rollup/rollup-darwin-arm64": "^4.53.3",
     "@tailwindcss/typography": "^0.5.19",
     "autoprefixer": "^10.4.22",
     "postcss": "^8.5.6",
